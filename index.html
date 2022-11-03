@@ -15,42 +15,66 @@
   </head>
 
   <body class="bg-dark">
-    <!-- ADD TASK -->
+
+
+
+    <!--Tasks-->
     <div class="container p-4">
       <div class="row">
         <div class="col-md-6">
           <div class="card">
             <div class="card-body">
-              <h1 class="h4">Add Task</h1>
+              <h1 class="h4">Adicionar</h1>
 
               <form id="task-form">
-                <label for="title">Title:</label>
+                <label for="nome">Titulo:</label>
                 <input
                   type="text"
-                  id="task-title"
+                  id="task-nome"
                   class="form-control mb-3"
                   class="My First Title"
-                  placeholder="Task Title"
+                  placeholder="Nome"
                   autofocus
                 />
 
-                <label for="description">Description:</label>
+                <label for="preco">Preco:</label>
+                <input
+                  type="text"
+                  id="task-preco"
+                  class="form-control mb-3"
+                  class="My First Title"
+                  placeholder="Preco"
+                  autofocus
+                />
+
+                <label for="quantidade">Quantidade:</label>
+                <input
+                  type="text"
+                  id="task-quantidade"
+                  class="form-control mb-3"
+                  class="My First Title"
+                  placeholder="Quantidade"
+                  autofocus
+                />
+
+                <label for="marca">Marca:</label>
                 <textarea
-                  id="task-description"
+                  id="task-marca"
                   rows="3"
                   class="form-control mb-3"
-                  placeholder="Task Description"
+                  placeholder="marca"
                 ></textarea>
 
-                <button class="btn btn-primary" id="btn-task-form">Save</button>
+                <button class="btn btn-primary" id="btn-task-form">Salvar</button>
               </form>
             </div>
           </div>
         </div>
-        <!-- Tasks List -->
+        <!--Tasks List-->
         <div class="col-md-6" id="tasks-container"></div>
       </div>
     </div>
+
 
     <!-- CUSTOM CODE -->
     <script src="./index.js" type="module"></script>

@@ -27,8 +27,10 @@ import {
   
         tasksContainer.innerHTML += `
         <div class="card card-body mt-2 border-primary">
-      <h3 class="h5">${task.title}</h3>
-      <p>${task.description}</p>
+      <h3 class="h5">${task.nome}</h3>
+      <p>${task.marca}</p>
+      <h3 class="h5">${task.preco}</h3>
+      <h3 class="h5">${task.quantidade}</h3>
       <div>
         <button class="btn btn-primary btn-delete" data-id="${doc.id}">
           🗑 Delete
@@ -57,9 +59,10 @@ import {
           try {
             const doc = await getTask(e.target.dataset.id);
             const task = doc.data();
-            taskForm["task-title"].value = task.title;
-            taskForm["task-description"].value = task.description;
-  
+            taskForm["task-nome"].value = task.nome;
+            taskForm["task-marca"].value = task.marca;
+            taskForm["task-preco"].value = task.preco;
+            taskForm["task-quantidade"].value = task.quantidade;
             editStatus = true;
             id = doc.id;
             taskForm["btn-task-form"].innerText = "Update";
@@ -74,21 +77,24 @@ import {
   taskForm.addEventListener("submit", async (e) => {
     e.preventDefault();
   
-    const title = taskForm["task-title"];
-    const description = taskForm["task-description"];
-  
+    const nome = taskForm["task-nome"];
+    const marca= taskForm["task-marca"];
+    const preco= taskForm["task-preco"];
+    const quantidade= taskForm["task-quantidade"];
     try {
       if (!editStatus) {
-        await saveTask(title.value, description.value);
+        await saveTask(nome.value, marca.value,preco.value,quantidade.value);
       } else {
         await updateTask(id, {
-          title: title.value,
-          description: description.value,
+          nome: nome.value,
+          marca: marca.value,
+          preco: preco.value,
+          quantidade: quantidade.value
         });
   
         editStatus = false;
         id = "";
-        taskForm["btn-task-form"].innerText = "Save";
+        taskForm["btn-task-form"].innerText = "Salvar";
       }
   
       taskForm.reset();
@@ -97,3 +103,9 @@ import {
       console.log(error);
     }
   });
+
+
+
+
+
+  
